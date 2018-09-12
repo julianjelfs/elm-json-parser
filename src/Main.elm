@@ -22,7 +22,13 @@ jsonParser =
         , parseInt
         , parseFloat
         , parseString
+        , parseNull
         ]
+
+
+parseNull : P.Parser JValue
+parseNull =
+    P.map (always JNull) (P.keyword "null")
 
 
 parseInt : P.Parser JValue
